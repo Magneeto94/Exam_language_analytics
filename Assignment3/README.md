@@ -1,4 +1,4 @@
-# Dictionary-based sentiment analysis with Python
+# Assignment 3: Dictionary-based sentiment analysis with Python
 <br>
 
 
@@ -22,7 +22,8 @@ This is a dataset of over a million headlines taken from the Australian news sou
 
 - After cloning the repository to worker02 or locally on your machine with __"git clone https://github.com/Magneeto94/Exam_language_analytics.git"__
 - To set up the virtuel inviorement __"run bash create_venv_ass3"__
-    - The virtual environment "venv_ass3" will be activated.
+    - The virtual environment "venv_ass3" will be created.
+    - activate it with: "source venv_ass3/bin/activate"
 - Now move to the folder src via the terminal
 - This folder contains 2 scrits:
     - __creating_csv.py:__ to create a new data frame with a column containing the sentiment scores for the headlines
