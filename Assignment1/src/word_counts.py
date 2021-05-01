@@ -32,7 +32,8 @@ def main():
         with open(filename, "r", encoding="utf-8") as file:
             
             #Creating a regex that only returns all letters, including capital letters, and spaces.
-            regex = re.compile('[^a-zA-Z\s]')
+            #I am leaving the "'", because I see words like don't, doesn't and isn't as words.
+            regex = re.compile('[^a-zA-Z\'\s]')
             
             #Reading the files and..
             #Making everything into lower case so the same words spelled with different cases are not counted twice in unique_words.
