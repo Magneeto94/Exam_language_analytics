@@ -23,7 +23,8 @@ def main():
     headlines = pd.read_csv(filepath)
     
     # new_data now also consist of a column/series of scores (sentiment scores)
-    headlines
+#     print("first 10 values of the dataframe:")
+#     print(headlines.head(10))
 
     #Deleting the series named "Unnamed: 0"
     del headlines["Unnamed: 0"]
@@ -34,6 +35,8 @@ def main():
     
     #Calculation the avarage score for for each date using groupby() and mean()
     avg_data = headlines.groupby("publish_date").mean()
+
+    
 
     #The dataframe no longer contains the headlines, and only 1 date for each day.
     #The avarage score for the sentiment is calculated and saved. The df is now considarably smaler.
@@ -60,6 +63,9 @@ def main():
     smoothed_sentiment_months = pd.Series(mean_scores).rolling(30).mean()
     
     
+#     smoothed_sentiment_weeks = pd.Series(avg_data["scores"]).rolling(7).mean()
+#     smoothed_sentiment_months = pd.Series(avg_data["scores"]).rolling(30).mean()
+    
     '''
     -----------------------Creating plot for weeks:------------------------------
     '''
@@ -67,7 +73,7 @@ def main():
     fig = plt.figure(figsize = (10,5)) 
 
     #Creating a title for the plot.
-    plt.title("Sentiment for headlines 2003-2020", fontsize = 32)
+    plt.title("Sentiment for headlines 2003-2021", fontsize = 32)
 
     #naming x and y labels
     plt.xlabel("Years since 2003", fontsize = 20)

@@ -7,7 +7,10 @@ import pandas as pd
 import spacy
 from spacytextblob.spacytextblob import SpacyTextBlob
 #Initialise spacy
-nlp = spacy.load("en_core_web_sm") #nlp = natural language processing.
+
+#Disabeling tagger (assigns part of speech tags), parser (genrates dependency parses) and ner (named entity recognition) to be able to run through the data faster.
+nlp = spacy.load("en_core_web_sm", disable=['tagger', 'parser', 'ner']) #nlp = natural language processing.
+nlp.add_pipe(nlp.create_pipe('sentencizer'))
 import numpy as np
 
 
@@ -35,8 +38,7 @@ def main():
     #The loop runs through the headlines in the csv-file.
     #Disabeling to make the code run faster, since there is a lot of data and the processing time is long.
     for doc in tqdm(nlp.pipe(data["headline_text"],
-                        batch_size=500,
-                        disable=["tagger", "parser", "ner"])):
+                        batch_size=50)):
         output.append(doc._.sentiment.polarity) #appending the scores to our output container.
 
     # Creating a new dataframe

@@ -7,8 +7,8 @@ import csv
 import argparse
 
 
-
-output = os.path.join("..", "output", "collocate.csv") # Destination for the endproduct
+# Destination for the endproduct
+output = os.path.join("..", "output", "collocate.csv")
 
 
 '''
@@ -19,21 +19,21 @@ output = os.path.join("..", "output", "collocate.csv") # Destination for the end
 #Deffining the tokenize funktion
 def tokenize(input_string):
     
-    regex = re.compile('[^a-zA-Z\'\s]')
+    pattern = r"[^a-z\s']"
     
     
     #Making the input to lower case.
     input_string = input_string.lower()
     
-    input_string = regex.sub('', input_string)
+    #substituting everything that does not match the pattern with nothing
+    input_string = re.sub(pattern, '', input_string)
     
     '''
-    There is some problems with the regex here. I tried to match woth apostrophies words and words with out.
+    There is some problems with the regex here. I tried to match both apostrophies words and words with out.
     The problem is that the regex matches everything i want by also a single "t" if there is a word like "can't"
     '''
     #re.findall returns all non-overlapping matches of pattern in a string, as a list of strings.
-    token_list = re.findall(r'\b([\w]+[\'][\w]+\b | \b\w+\b)',input_string)
-    
+    token_list = re.findall(r"\b\w+\b", input_string)
     
     return token_list
 
@@ -41,10 +41,10 @@ def tokenize(input_string):
 '''
 Deffining a function with the following parameters:
 - text = a text file
-- keyword = The word we are centuring the collocation around.
+- keyword = The word we are centering the collocation around.
 - Window_size = the number of characters that comes before the word. if nothing is put in it will be 50
 ''' 
-def kwic(text, keyword, window_size=50):
+def kwic(text, keyword, window_size):
     
     #creating an empty container, to append lines from the texts
     lines = [] 
@@ -82,12 +82,13 @@ def kwic(text, keyword, window_size=50):
     #print (lines)
     return lines 
 
-    
+
     
 #Deffining main function:    
 def main():
+    
     '''
-    Defining commandline arguments:
+    -----------------------Defining commandline arguments:------------------------
     '''
     
     ap = argparse.ArgumentParser(description = "[INFO] collocation script")
@@ -109,7 +110,7 @@ def main():
     ap.add_argument("-c",
                     "--corpus",
                     required=False, # It is not required to chose a corpus.
-                    default="../data/100_english_novels/corpus", # If no corpus is chosen, the default corpus 100_english_novels is chosen
+                    default="../data/100_english_novels", # If no corpus is chosen, the default corpus 100_english_novels is chosen
                     type=str, #This argument must be an integer.
                     help="The corpus you would like to calculate collocates for")
     

@@ -31,20 +31,24 @@ def main():
         #Opening each file.
         with open(filename, "r", encoding="utf-8") as file:
             
-            #Creating a regex that only returns all letters, including capital letters, and spaces.
-            #I am leaving the "'", because I see words like don't, doesn't and isn't as words.
-            regex = re.compile('[^a-zA-Z\'\s]')
             
-            #Reading the files and..
             #Making everything into lower case so the same words spelled with different cases are not counted twice in unique_words.
             loaded_text = file.read().lower()
             
-            #Now using the regex to remove all charactors that are not spaces or letters
-            loaded_text = regex.sub('', loaded_text)
+            '''
+            Creating a pattern, using "^" as a negation modifier to match everything,
+            that is not in the pattern: all lower case letters, whitespaces and apostrophes.
+            '''
+            #Leaving the apostrophes to be able to differentiate between for example "trolls" and "troll's"
+            pattern = r"[^a-z\s']"
             
-            #Splitting the loaded text on whitespace. Each word is now a an item in a list in each text.
+            #substituting everything that is not in pattern with nothing.
+            loaded_text = re.sub(pattern, '', loaded_text)
+            
+            
+            #Splitting text text and thereby creating a list.
+            split_text = loaded_text.split() #If no argument is given, the function splits on whitespace.
             #This enable me to count the number of words in the text.
-            split_text = loaded_text.split()
                           
             #Using the "set" function to get the unique wordcount for each text. Set only counts words once.
             unique_set = set(split_text)
@@ -63,13 +67,16 @@ def main():
     '''
     
     #Merging the lists Auther_name, total_words and unique_words. which now contains the values gethered from the .txt-files
-    merged_list = {'Auther_name': Auther_name, 'total_words': total_words, 'unique_words': unique_words}
+    merged_dict = {'Auther_name': Auther_name, 'total_words': total_words, 'unique_words': unique_words}
     
-    #Transforming merged list to a dataframe
-    df = pd.DataFrame(merged_list)
+    #Transforming merged dictionary to a dataframe
+    df = pd.DataFrame(merged_dict)
     
     #Sorting the dataframe alphabetically and giving the values new indexes, so Anon_Clara gets index 0 and so on.
     df = df.sort_values('Auther_name', ignore_index=True)
+    
+    #Printing the 10 first rows of the dataframe, before it is written to a csv file
+    print(df.head(10))
     
     #Writing data to the path and saving it as a csv-file
     df.to_csv('../output/wordcount.csv')
