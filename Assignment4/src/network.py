@@ -13,16 +13,13 @@ import spacy
 nlp = spacy.load("en_core_web_sm")
 import argparse
 
-#import matplotlib
-#matplotlib.use('Agg')
-
 import matplotlib.pyplot as plt
 plt.rcParams["figure.figsize"] = (20,20)
 
 import networkx as nx
 
 
-#creating the main funktion.
+#creating the main function.
 def main():
     
     

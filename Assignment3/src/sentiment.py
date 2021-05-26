@@ -92,7 +92,7 @@ def main():
 
     #changing the numbers of the x-asis.
     plt.xticks(np.arange(0, len(mean_scores)+1,365.25), range(2003,2021))
-    plt.savefig("../output/sentiment_week.png")
+    plt.savefig(os.path.join("..", "output", "sentiment_week.png"))
     
     
     '''
@@ -120,7 +120,7 @@ def main():
 
     #changing the numbers of the x-asis.
     plt.xticks(np.arange(0, len(mean_scores)+1,365.25), range(2003,2021))
-    plt.savefig("../output/sentiment_months.png")
+    plt.savefig(os.path.join("..", "output", "sentiment_months.png"))
     
     
 if __name__ =='__main__':

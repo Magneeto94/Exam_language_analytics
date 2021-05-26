@@ -1,0 +1,9 @@
+Average sentiment score of the books: 
+
+(HP1) Harry Potter and the Philosophers Stone   : 0.023
+(HP2) Harry Potter and the Chamber of Secrets   : 0.0249
+(HP3) Harry Potter and the Prisoner of Azkaban  : 0.0161
+(HP4) Harry Potter and the Goblet of Fire:      : 0.0271
+(HP5) Harry Potter and the Order of the Phoenix : 0.0169
+(HP6) Harry Potter and the Half Blood Prince    : 0.0318
+(HP7) Harry Potter and the Deadly Hallows       : 0.0246
