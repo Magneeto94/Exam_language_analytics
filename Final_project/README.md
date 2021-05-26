@@ -4,6 +4,8 @@
 
 
 ### Set up venv and run scripts
+- After cloning the repository to worker02 or locally on your machine with "git clone https://github.com/Magneeto94/Exam_language_analytics.git" you will be able to use the scripts. 
+
 - To set up the virtual environment run: “bash create_venv_FP.sh”
     - The virtual environment venv_FP will be created with the dependencies from the requirements.txt file.
 - To activate the virtual environment run: “source venv_FP/bin/activate

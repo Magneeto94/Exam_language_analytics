@@ -23,11 +23,11 @@ This is a dataset of over a million headlines taken from the Australian news sou
 - After cloning the repository to worker02 or locally on your machine with __"git clone https://github.com/Magneeto94/Exam_language_analytics.git"__
 - To set up the virtuel inviorement __"run bash create_venv_ass3"__
     - The virtual environment "venv_ass3" will be created.
-    - activate it with: "source venv_ass3/bin/activate"
+- Activate it with: "source venv_ass3/bin/activate"
 - Now move to the folder src via the terminal
 - This folder contains 2 scrits:
-    - __creating_csv.py:__ to create a new data frame with a column containing the sentiment scores for the headlines
-    - __sentiment.py:__ that creates the graphs of the sentiment scores and saves it in out put.
+    - __creating_csv.py:__ to create a new data frame with a column containing the sentiment scores for the headlines which is written to a csv-file in the data folder.
+    - __sentiment.py:__ that creates the graphs of the sentiment scores and saves it the out put folder
     - creating_csv.py takes about half an hour to run. The csv file that contains the new dataframe is placed in the data folder, so it is not nessasary to run the script to get the data frame.
     
 - The 2 python scripts can be run from the src folder with "python sentiment.py" or "python creating_csv.py"

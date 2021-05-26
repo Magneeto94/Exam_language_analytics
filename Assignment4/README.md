@@ -1,16 +1,12 @@
 # Assignment 4 network analysis
 
-This repository containes homework for assignment 4
 
+### Running the script:
  
-1. Download repo to your worker02 account by using: git clone https://github.com/Magneeto94/Language-analytics-EmilBT.git
-
-2. then navigate to the folder: cd Assignment4
-
-3. activate the venv: python -m venv networkanalysis
- 
-4. install the requirements: pip install -r requirements.txt
-
-5. run the script (there is 2 arguments):
-  - f the path to the file you would like to create a network from -f "data/fake_or_real_news-Copy1.csv"
-  and the minimum number of edges the nodes shoud have in the network -e number.
+- After cloning the repository to worker02 or locally on your machine with "git clone https://github.com/Magneeto94/Exam_language_analytics.git" you will be able to use the scripts. 
+- Navigate to the folder: “cd Assignment4”
+- Install the virtual environment with the following command: “bash create_venv_ass4.sh”
+- Activate the venv with the following command: “source venv_ass4/bin/activate”
+- run the script (there is 2 arguments):
+    - The path to the file you would like to create a network from. The default is set to be: “-f fake_or_real_news.csv". Therefore, no argument is required from the user.
+    - The minimum number of edges the nodes should have in the network: “-e number”. The default here is set to 10 edges, so no number is required in this argument either.
